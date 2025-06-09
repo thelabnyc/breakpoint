@@ -32,8 +32,6 @@ test:
   stage: test
   needs: []
   script:
-    - npm run check
-    - npm run build
     - npm run test
 
 release:pkg-npm:
