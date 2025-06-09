@@ -3,6 +3,7 @@
   "version": "3.0.0",
   "description": "Really Simple Media Queries with Sass",
   "main": "stylesheets/_breakpoint.scss",
+  "type": "module",
   "directories": {
     "stylesheets": "stylesheets"
   },
