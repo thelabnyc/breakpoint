@@ -1,6 +1,6 @@
 {
   "name": "@thelabnyc/breakpoint-sass",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Really Simple Media Queries with Sass",
   "main": "stylesheets/_breakpoint.scss",
   "type": "module",
