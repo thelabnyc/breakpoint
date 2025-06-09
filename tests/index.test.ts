@@ -1,16 +1,16 @@
-const test = require("ava");
-const sass = require("sass");
-const { readFileSync } = require("fs");
-const path = require("path");
-const glob = require("glob");
-const { pathToFileURL } = require("url");
+import path from "node:path";
+import { pathToFileURL } from "node:url";
 
-const tests = glob
-    .sync(path.join(__dirname, "./tests/**.scss"))
-    .filter((file) => !path.basename(file).startsWith("_"));
+import { globSync } from "glob";
+import sass from "sass";
+import { describe, expect, test } from "vitest";
 
-async function testMacro(t, file) {
-    const css = sass.compile(file, {
+const tests = globSync(path.join(__dirname, "./tests/**.scss")).filter(
+    (file) => !path.basename(file).startsWith("_"),
+);
+
+const testMacro = async (testFile: string) => {
+    const css = await sass.compileAsync(testFile, {
         importers: [
             {
                 findFileUrl(url) {
@@ -38,24 +38,14 @@ async function testMacro(t, file) {
             },
         ],
     });
+    expect(css.css).toMatchSnapshot();
+};
 
-    const cssFile = file
-        .replace(".scss", ".css")
-        .replace("/tests/tests/", "/tests/controls/");
-    const expected = readFileSync(cssFile, "utf8");
-
-    t.is(css.css + "\n", expected);
-}
-
-for (const testFile of tests) {
-    test(
-        path
-            .basename(testFile)
-            .replace(/(\n*)_/, " ")
-            .replace(".scss", "")
-            .replace(/_/g, " ")
-            .replace("-", " - "),
-        testMacro,
-        testFile,
-    );
-}
+describe("Compile", () => {
+    tests.forEach((testFile) => {
+        const basename = path.basename(testFile);
+        test(basename, async () => {
+            await testMacro(testFile);
+        });
+    });
+});

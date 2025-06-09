@@ -1,0 +1,2395 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Compile > 01_pixel.scss 1`] = `
+"/*
+ * Assume \`default feature\`
+ * if only a number
+ * $single-pixel-value: 500px;
+ * $single-em-value: 30em;
+ */
+@media (min-width: 500px) {
+  .foo {
+    content: "$single-pixel-value";
+    content: "@media (min-width: 500px)";
+  }
+}
+@media (min-width: 30em) {
+  .foo {
+    content: "$single-em-value";
+    content: "@media (min-width: 30em)";
+  }
+}
+@media (min-width: 500px) {
+  .foo {
+    content: "$single-pixel-value";
+    content: "@media (min-width: 500px)";
+  }
+}
+@media (min-width: 30em) {
+  .foo {
+    content: "$single-em-value";
+    content: "@media (min-width: 30em)";
+  }
+}
+@media (min-width: 500px) {
+  .foo {
+    content: "$single-pixel-value";
+    content: "@media (min-width: 500px)";
+  }
+}
+@media (min-width: 30em) {
+  .foo {
+    content: "$single-em-value";
+    content: "@media (min-width: 30em)";
+  }
+}"
+`;
+
+exports[`Compile > 02_pixel_to_em.scss 1`] = `
+"/* @include breakpoint-set('to ems', true); */
+@media (min-width: 31.25em) {
+  .breakpoint-default-feature-to-ems {
+    content: "$single-pixel-value";
+    content: "@media (min-width: 31.25em)";
+  }
+}
+@media (min-width: 30em) {
+  .breakpoint-default-feature-to-ems {
+    content: "$single-em-value";
+    content: "@media (min-width: 30em)";
+  }
+}
+@media (min-width: 31.25em) {
+  .breakpoint-default-feature-to-ems {
+    content: "$single-pixel-value";
+    content: "@media (min-width: 31.25em)";
+  }
+}
+@media (min-width: 30em) {
+  .breakpoint-default-feature-to-ems {
+    content: "$single-em-value";
+    content: "@media (min-width: 30em)";
+  }
+}"
+`;
+
+exports[`Compile > 03_feature_values.scss 1`] = `
+"/*
+ * Single value with feature
+ * $feature-first : height 500px;
+ * $value-first : 500px height;
+ * $arbitrary-feature : lion 500px;
+ * $feature-value-both-strings : portrait orientation;
+ */
+@media (height: 500px) {
+  .foo {
+    content: "$feature-first";
+    content: "@media (height: 500px)";
+  }
+}
+@media (height: 500px) {
+  .foo {
+    content: "$value-first";
+    content: "@media (height: 500px)";
+  }
+}
+@media (lion: 500px) {
+  .foo {
+    content: "$arbitrary-feature";
+    content: "@media (lion: 500px)";
+  }
+}
+@media (orientation: portrait) {
+  .foo {
+    content: "$feature-value-both-strings";
+    content: "@media (orientation: portrait)";
+  }
+}
+@media (height: 500px) {
+  .foo {
+    content: "$feature-first";
+    content: "@media (height: 500px)";
+  }
+}
+@media (height: 500px) {
+  .foo {
+    content: "$value-first";
+    content: "@media (height: 500px)";
+  }
+}
+@media (lion: 500px) {
+  .foo {
+    content: "$arbitrary-feature";
+    content: "@media (lion: 500px)";
+  }
+}
+@media (orientation: portrait) {
+  .foo {
+    content: "$feature-value-both-strings";
+    content: "@media (orientation: portrait)";
+  }
+}
+
+@media (height: 31.25em) {
+  .bar {
+    content: "$feature-first";
+    content: "@media (height: 31.25em)";
+  }
+}
+@media (height: 31.25em) {
+  .bar {
+    content: "$value-first";
+    content: "@media (height: 31.25em)";
+  }
+}
+@media (lion: 31.25em) {
+  .bar {
+    content: "$arbitrary-feature";
+    content: "@media (lion: 31.25em)";
+  }
+}
+@media (height: 31.25em) {
+  .bar {
+    content: "$feature-first";
+    content: "@media (height: 31.25em)";
+  }
+}
+@media (height: 31.25em) {
+  .bar {
+    content: "$value-first";
+    content: "@media (height: 31.25em)";
+  }
+}
+@media (lion: 31.25em) {
+  .bar {
+    content: "$arbitrary-feature";
+    content: "@media (lion: 31.25em)";
+  }
+}"
+`;
+
+exports[`Compile > 04_min_max.scss 1`] = `
+"/*
+ * Set min-width/max-width
+ * if both values are numbers
+ * $min-max-default-feature : 500px 700px;
+ */
+@media (min-width: 500px) and (max-width: 700px) {
+  .foo {
+    content: "$min-max-default-feature";
+    content: "@media (min-width: 500px) and (max-width: 700px)";
+  }
+}
+@media (min-width: 500px) and (max-width: 700px) {
+  .foo {
+    content: "$min-max-default-feature";
+    content: "@media (min-width: 500px) and (max-width: 700px)";
+  }
+}
+
+@media (min-width: 31.25em) and (max-width: 43.75em) {
+  .bar {
+    content: "$min-max-default-feature";
+    content: "@media (min-width: 31.25em) and (max-width: 43.75em)";
+  }
+}
+@media (min-width: 31.25em) and (max-width: 43.75em) {
+  .bar {
+    content: "$min-max-default-feature";
+    content: "@media (min-width: 31.25em) and (max-width: 43.75em)";
+  }
+}"
+`;
+
+exports[`Compile > 05_min_max_feature.scss 1`] = `
+"/*
+ * Set min/max of feature
+ * if there are two numbers and a feature
+ * $feature-min-max : height 300px 700px;
+ * $min-max-feature : 300px 700px height;
+ * $arbitrary-feature-min-max : lion 300px 700px;
+ */
+@media (min-height: 300px) and (max-height: 700px) {
+  .min-max-feature {
+    content: "$feature-min-max";
+    content: "@media (min-height: 300px) and (max-height: 700px)";
+  }
+}
+@media (min-height: 300px) and (max-height: 700px) {
+  .min-max-feature {
+    content: "$min-max-feature";
+    content: "@media (min-height: 300px) and (max-height: 700px)";
+  }
+}
+@media (min-lion: 300px) and (max-lion: 700px) {
+  .min-max-feature {
+    content: "$arbitrary-feature-min-max";
+    content: "@media (min-lion: 300px) and (max-lion: 700px)";
+  }
+}
+@media (min-height: 300px) and (max-height: 700px) {
+  .min-max-feature {
+    content: "$feature-min-max";
+    content: "@media (min-height: 300px) and (max-height: 700px)";
+  }
+}
+@media (min-height: 300px) and (max-height: 700px) {
+  .min-max-feature {
+    content: "$min-max-feature";
+    content: "@media (min-height: 300px) and (max-height: 700px)";
+  }
+}
+@media (min-lion: 300px) and (max-lion: 700px) {
+  .min-max-feature {
+    content: "$arbitrary-feature-min-max";
+    content: "@media (min-lion: 300px) and (max-lion: 700px)";
+  }
+}
+
+/* @include breakpoint-set('to ems', true); */
+@media (min-height: 18.75em) and (max-height: 43.75em) {
+  .min-max-feature-to-ems {
+    content: "$feature-min-max";
+    content: "@media (min-height: 18.75em) and (max-height: 43.75em)";
+  }
+}
+@media (min-height: 18.75em) and (max-height: 43.75em) {
+  .min-max-feature-to-ems {
+    content: "$min-max-feature";
+    content: "@media (min-height: 18.75em) and (max-height: 43.75em)";
+  }
+}
+@media (min-lion: 18.75em) and (max-lion: 43.75em) {
+  .min-max-feature-to-ems {
+    content: "$arbitrary-feature-min-max";
+    content: "@media (min-lion: 18.75em) and (max-lion: 43.75em)";
+  }
+}
+@media (min-height: 18.75em) and (max-height: 43.75em) {
+  .min-max-feature-to-ems {
+    content: "$feature-min-max";
+    content: "@media (min-height: 18.75em) and (max-height: 43.75em)";
+  }
+}
+@media (min-height: 18.75em) and (max-height: 43.75em) {
+  .min-max-feature-to-ems {
+    content: "$min-max-feature";
+    content: "@media (min-height: 18.75em) and (max-height: 43.75em)";
+  }
+}
+@media (min-lion: 18.75em) and (max-lion: 43.75em) {
+  .min-max-feature-to-ems {
+    content: "$arbitrary-feature-min-max";
+    content: "@media (min-lion: 18.75em) and (max-lion: 43.75em)";
+  }
+}"
+`;
+
+exports[`Compile > 06_multidemensional.scss 1`] = `
+"/*
+ * Multidimensional lists,
+ * assume each item is a feature value pair
+ * $multidimensional : height 500px portrait orientation;
+ */
+@media (height: 500px) and (orientation: portrait) {
+  .multidimensional {
+    content: "$multidimensional";
+    content: "@media (height: 500px) and (orientation: portrait)";
+  }
+}
+@media (height: 500px) and (orientation: portrait) {
+  .multidimensional {
+    content: "$multidimensional";
+    content: "@media (height: 500px) and (orientation: portrait)";
+  }
+}
+
+/* @include breakpoint-set('to ems', true); */
+@media (height: 31.25em) and (orientation: portrait) {
+  .multidimensional-to-ems {
+    content: "$multidimensional";
+    content: "@media (height: 31.25em) and (orientation: portrait)";
+  }
+}
+@media (height: 31.25em) and (orientation: portrait) {
+  .multidimensional-to-ems {
+    content: "$multidimensional";
+    content: "@media (height: 31.25em) and (orientation: portrait)";
+  }
+}"
+`;
+
+exports[`Compile > 07_basic_or.scss 1`] = `
+"/*
+ * 'OR' mediaqueries.
+ * tests separated by commas
+ * $basic-or : max-width 350px, 500px 600px;
+ * $basic-or-media : 500px, tv 700px color;
+ */
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or {
+    content: "$basic-or";
+    content: "@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)";
+  }
+}
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or {
+    content: "$basic-or";
+    content: "@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)";
+  }
+}
+
+@media (min-width: 500px), tv and (min-width: 700px) and (color) {
+  .basic-or-media {
+    content: "$basic-or";
+    content: "@media (min-width: 500px), tv and (min-width: 700px) and (color)";
+  }
+}
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or-media {
+    content: "$basic-or";
+    content: "@media (min-width: 500px), tv and (min-width: 700px) and (color)";
+  }
+}
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or-media {
+    content: "$basic-or";
+    content: "@media (min-width: 500px), tv and (min-width: 700px) and (color)";
+  }
+}
+
+/* @include breakpoint-set('to ems', true); */
+@media (max-width: 21.875em), (min-width: 31.25em) and (max-width: 37.5em) {
+  .basic-or-to-ems {
+    content: "$basic-or";
+    content: "@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)";
+  }
+}
+@media (max-width: 21.875em), (min-width: 31.25em) and (max-width: 37.5em) {
+  .basic-or-to-ems {
+    content: "$basic-or";
+    content: "@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)";
+  }
+}"
+`;
+
+exports[`Compile > 08_one_sided_feature.scss 1`] = `
+"/*
+ * One-sided features (ie. monochrome)
+ * $monochrome : monochrome;
+ * $monochrome-double : 300px monochrome;
+ * $multidimensional-plus-one-sided : height 500px portrait orientation monochrome;
+ */
+@media (monochrome) {
+  .one-sided {
+    content: "$monochrome";
+    content: "@media (monochrome)";
+  }
+}
+@media (monochrome) and (min-width: 300px) {
+  .one-sided {
+    content: "$monochrome-double";
+    content: "@media (monochrome) and (min-width: 300px)";
+  }
+}
+@media (height: 500px) and (orientation: portrait) and (monochrome) {
+  .one-sided {
+    content: "$multidimensional-plus-one-sided";
+    content: "@media (height: 500px) and (orientation: portrait) and (monochrome)";
+  }
+}
+@media (monochrome) {
+  .one-sided {
+    content: "$monochrome";
+    content: "@media (monochrome)";
+  }
+}
+@media (monochrome) and (min-width: 300px) {
+  .one-sided {
+    content: "$monochrome-double";
+    content: "@media (monochrome) and (min-width: 300px)";
+  }
+}
+@media (height: 500px) and (orientation: portrait) and (monochrome) {
+  .one-sided {
+    content: "$multidimensional-plus-one-sided";
+    content: "@media (height: 500px) and (orientation: portrait) and (monochrome)";
+  }
+}
+
+/* @include breakpoint-set('to ems', true); */
+@media (monochrome) and (min-width: 18.75em) {
+  .one-sided-to-ems {
+    content: "$monochrome-double";
+    content: "@media (monochrome) and (min-width: 18.75em)";
+  }
+}
+@media (height: 31.25em) and (orientation: portrait) and (monochrome) {
+  .one-sided-to-ems {
+    content: "$multidimensional-plus-one-sided";
+    content: "@media (height: 31.25em) and (orientation: portrait) and (monochrome)";
+  }
+}
+@media (monochrome) and (min-width: 18.75em) {
+  .one-sided-to-ems {
+    content: "$monochrome-double";
+    content: "@media (monochrome) and (min-width: 18.75em)";
+  }
+}
+@media (height: 31.25em) and (orientation: portrait) and (monochrome) {
+  .one-sided-to-ems {
+    content: "$multidimensional-plus-one-sided";
+    content: "@media (height: 31.25em) and (orientation: portrait) and (monochrome)";
+  }
+}"
+`;
+
+exports[`Compile > 09_not.scss 1`] = `
+"/*
+ * One-sided features (ie. monochrome)
+ * $not : not screen;
+ */
+@media not screen {
+  .not {
+    content: "$not";
+    content: "@media not screen";
+  }
+}
+@media not tv and (min-width: 500px) {
+  .not {
+    content: "$not-plus-default";
+    content: "@media not tv and (min-width: 500px)";
+  }
+}
+@media not screen {
+  .not {
+    content: "$not";
+    content: "@media not screen";
+  }
+}
+@media not tv and (min-width: 500px) {
+  .not {
+    content: "$not-plus-default";
+    content: "@media not tv and (min-width: 500px)";
+  }
+}"
+`;
+
+exports[`Compile > 10_double_string.scss 1`] = `
+"/*
+ * Double string feature (i.e. string: string)
+ * $aspect-ratio : min-aspect-ratio 300/250;
+ * $device-aspect-ratio : max-device-aspect-ratio 320/480;
+ */
+@media (min-aspect-ratio: 300/250) {
+  .aspect-ratio {
+    content: "$aspect-ratio";
+    content: "@media (min-aspect-ratio: 300/250)";
+  }
+}
+@media (max-device-aspect-ratio: 320/480) {
+  .aspect-ratio {
+    content: "$device-aspect-ratio";
+    content: "@media (max-device-pixel-ratio: 320/480)";
+  }
+}
+@media (min-aspect-ratio: 300/250) {
+  .aspect-ratio {
+    content: "$aspect-ratio";
+    content: "@media (min-aspect-ratio: 300/250)";
+  }
+}
+@media (max-device-aspect-ratio: 320/480) {
+  .aspect-ratio {
+    content: "$device-aspect-ratio";
+    content: "@media (max-device-pixel-ratio: 320/480)";
+  }
+}"
+`;
+
+exports[`Compile > 11_legacy_syntax.scss 1`] = `
+"/*
+ * Legacy syntax
+ */
+@media not screen and (min-width: 500px) {
+  .legacy {
+    content: "$legacy";
+    content: "@media not screen and (min-width: 500px)";
+  }
+}
+@media not screen and (min-width: 500px) {
+  .legacy {
+    content: "$legacy";
+    content: "@media not screen and (min-width: 500px)";
+  }
+}"
+`;
+
+exports[`Compile > 12_breakpoint_resolutions.scss 1`] = `
+"/*
+ * Resolution queries, device pixel ratio and standard resolution
+ * $device-pixel-ratio: resolution 2dppx
+ * $resolution: min-resolution 192dpi
+ */
+@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi) {
+  .resolution {
+    content: "resolution" 2dppx;
+    content: "@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)";
+  }
+}
+@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2) {
+  .resolution {
+    content: "min-resolution" 192dpi;
+    content: "@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2)";
+  }
+}
+@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi) {
+  .resolution {
+    content: "resolution" 2dppx;
+    content: "@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)";
+  }
+}
+@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2) {
+  .resolution {
+    content: "min-resolution" 192dpi;
+    content: "@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2)";
+  }
+}
+@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi) {
+  .resolution {
+    content: "resolution" 2dppx;
+    content: "@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)";
+  }
+}"
+`;
+
+exports[`Compile > 13_context_simple.scss 1`] = `
+"/*
+ * Queries to test Breakpoint Get Context
+ * $context-simple: 500px
+ * $context-single: monochrome
+ * $context-and: 500px 700px
+ * $context-max: max-width 700px
+ * $context-string: orientation portrait
+ * $context-triple: height 800px 1000px
+ * $context-media-type: print
+ * $context-or: 500px max-height 1200px, 600px 700px
+ * $context-complex: 500px, screen 500px 700px, 300px monochrome
+ */
+@media (min-width: 500px) {
+  .context {
+    content: "@media (min-width: 500px)";
+    -min-width: 500px;
+  }
+}
+@media (monochrome) {
+  .context {
+    content: "@media (monochrome)";
+    -monochrome: monochrome;
+  }
+}
+@media (min-width: 500px) and (max-width: 700px) {
+  .context {
+    content: "@media (min-width: 500px) and (max-width: 700px)";
+    -min-width: 500px;
+    -max-width: 700px;
+  }
+}
+@media (max-width: 700px) {
+  .context {
+    content: "@media (max-width: 700px)";
+    -max-width: 700px;
+  }
+}
+@media (orientation: portrait) {
+  .context {
+    content: "@media (orientation: portrait)";
+    -orientation: portrait;
+  }
+}
+@media (min-height: 800px) and (max-height: 1000px) {
+  .context {
+    content: "@media (min-height: 800px) and (max-height: 1000px)";
+    -min-height: 800px;
+    -max-height: 1000px;
+  }
+}
+@media print {
+  .context {
+    content: "@media print";
+    -media: print;
+  }
+}
+@media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px) {
+  .context {
+    content: "@media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px)";
+    -min-width: 500px 600px;
+    -max-width: false 700px;
+    -max-height: 1200px false;
+    -orientation: false;
+  }
+}
+@media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px) {
+  .context {
+    content: "@media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px)";
+    -min-width: 500px 500px 300px;
+    -max-width: false 700px false;
+    -media: all screen all;
+    -monochrome: false false monochrome;
+  }
+}"
+`;
+
+exports[`Compile > 14_context_complex.scss 1`] = `
+"/**
+ * Dynamic contexts.
+ */
+@media (min-width: 300px), print, (min-width: 200px) {
+  #multi-media {
+    -media: all print all;
+  }
+}"
+`;
+
+exports[`Compile > 15_no_query_fallback.scss 1`] = `
+"/**
+ * IE no-query fallbacks.
+ */
+/*
+ * Legacy syntax
+ */
+.no-mq .legacy {
+  content: "$legacy";
+  content: "@media not screen and (min-width: 500px)";
+}
+.no-mq .legacy {
+  content: "$legacy";
+  content: "@media not screen and (min-width: 500px)";
+}
+
+/*
+ * No Query
+ */
+.no-mq .no-query {
+  _query: "700px, no-query .no-mq";
+  _expected: "@media (min-width: 700px)";
+}
+.no-mq .no-query {
+  _query: "700px, no-query .no-mq";
+  _expected: "@media (min-width: 700px)";
+}"
+`;
+
+exports[`Compile > 16_media.scss 1`] = `
+"/*
+ * Media features (ie. tv)
+ * $simple-media : tv;
+ * $media-plus-default : tv 500px;
+ * $media-plus-fence : tv 500px 700px;
+ * $media-only : only print;
+ * $media-not : not print;
+ * $media-not-plus-fenced : not print 500px 700px;
+ */
+@media tv {
+  .media {
+    content: "$simple-media";
+    content: "@media tv";
+  }
+}
+@media tv and (min-width: 500px) {
+  .media {
+    content: "$media-plus-default";
+    content: "@media not tv and (min-width: 500px)";
+  }
+}
+@media tv and (min-width: 500px) and (max-width: 700px) {
+  .media {
+    content: "$media-plus-fence";
+    content: "@media tv and (min-width: 500px) and (max-width: 700px)";
+  }
+}
+@media only print {
+  .media {
+    content: "$media-only";
+    content: "@media only print";
+  }
+}
+@media not print {
+  .media {
+    content: "$media-not)";
+    content: "@media not print";
+  }
+}
+@media not print and (min-width: 500px) and (max-width: 700px) {
+  .media {
+    content: "$media-not-plus-fenced";
+    content: "@media not print and (min-width: 500px) and (max-width: 700px)";
+  }
+}
+@media tv {
+  .media {
+    content: "$simple-media";
+    content: "@media tv";
+  }
+}
+@media tv and (min-width: 500px) {
+  .media {
+    content: "$media-plus-default";
+    content: "@media not tv and (min-width: 500px)";
+  }
+}
+@media tv and (min-width: 500px) and (max-width: 700px) {
+  .media {
+    content: "$media-plus-fence";
+    content: "@media tv and (min-width: 500px) and (max-width: 700px)";
+  }
+}
+@media only print {
+  .media {
+    content: "$media-only";
+    content: "@media only print";
+  }
+}
+@media not print {
+  .media {
+    content: "$media-not)";
+    content: "@media not print";
+  }
+}
+@media not print and (min-width: 500px) and (max-width: 700px) {
+  .media {
+    content: "$media-not-plus-fenced";
+    content: "@media not print and (min-width: 500px) and (max-width: 700px)";
+  }
+}"
+`;
+
+exports[`Compile > 17_breakpoint_function.scss 1`] = `
+"/**
+  * Breakpoint Function
+  * - Returns either a map of the query, fallback, context, and query count or a map of context values
+**/
+.query {
+  /* Single Pixel Value */
+  _test: "breakpoint(500px)";
+  _query: " (min-width: 500px)";
+  _fallback: false;
+  _context-holder: (min-width: 500px);
+  _query-count: 1;
+  /* Fenced with Media */
+  _test: "breakpoint(not print 500px 700px)";
+  _query: "not print and (min-width: 500px) and (max-width: 700px)";
+  _fallback: false;
+  _context-holder: (media: "not print", min-width: 500px, max-width: 700px);
+  _query-count: 1;
+  /* Or Query */
+  _test: "breakpoint(400px min-height 200px, 300px 325px orientation portriat monochrome)";
+  _query: " (min-width: 400px) and (min-height: 200px),  (min-width: 300px) and (max-width: 325px) and (orientation: portriat) and (monochrome)";
+  _fallback: false;
+  _context-holder: (min-width: 400px 300px, "min-height": 200px false, max-width: false 325px, orientation: false portriat, "monochrome": false monochrome);
+  _query-count: 2;
+  /* No Query */
+  _test: "breakpoint(700px, no-query .no-mq)";
+  _query: " (min-width: 700px)";
+  _fallback: ".no-mq";
+  _context-holder: (min-width: 700px);
+  _query-count: 1;
+  /* No Query, Or */
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _query: "not screen,  (min-width: 500px)";
+  _fallback: ".no-mq";
+  _context-holder: (media: "not screen" all, min-width: false 500px);
+  _query-count: 2;
+}
+
+.context {
+  /* Single Pixel Value */
+  _test: "breakpoint(500px, 'min-width')";
+  _min-width: 500px;
+  _height: false;
+  _no-query: false;
+  /* Fenced with Media */
+  _test: "breakpoint(not print 500px 700px, 'min-width', 'max-width', 'media')";
+  _min-width: 500px;
+  _max-width: 700px;
+  _media: "not print";
+  /* Or Query */
+  _test: "breakpoint(400px min-height 200px, 300px 325px orientation portriat monochrome)";
+  _min-width: 400px 300px;
+  _min-height: 200px false;
+  _orientation: false portriat;
+  _no-query: false;
+  /* No Query */
+  _test: "breakpoint(700px, no-query .no-mq)";
+  _min-width: 700px;
+  _media: all;
+  _no-query: ".no-mq";
+  /* No Query, Or */
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+}"
+`;
+
+exports[`Compile > 18_pixel-memo.scss 1`] = `
+"/*
+ * Assume \`default feature\`
+ * if only a number
+ * $single-pixel-value: 500px;
+ * $single-em-value: 30em;
+ */
+@media (min-width: 500px) {
+  .foo {
+    content: "$single-pixel-value";
+    content: "@media (min-width: 500px)";
+  }
+}
+@media (min-width: 30em) {
+  .foo {
+    content: "$single-em-value";
+    content: "@media (min-width: 30em)";
+  }
+}
+@media (min-width: 500px) {
+  .foo {
+    content: "$single-pixel-value";
+    content: "@media (min-width: 500px)";
+  }
+}
+@media (min-width: 30em) {
+  .foo {
+    content: "$single-em-value";
+    content: "@media (min-width: 30em)";
+  }
+}
+@media (min-width: 500px) {
+  .foo {
+    content: "$single-pixel-value";
+    content: "@media (min-width: 500px)";
+  }
+}
+@media (min-width: 30em) {
+  .foo {
+    content: "$single-em-value";
+    content: "@media (min-width: 30em)";
+  }
+}"
+`;
+
+exports[`Compile > 19_pixel_to_em-memo.scss 1`] = `
+"/* @include breakpoint-set('to ems', true); */
+@media (min-width: 31.25em) {
+  .breakpoint-default-feature-to-ems {
+    content: "$single-pixel-value";
+    content: "@media (min-width: 31.25em)";
+  }
+}
+@media (min-width: 30em) {
+  .breakpoint-default-feature-to-ems {
+    content: "$single-em-value";
+    content: "@media (min-width: 30em)";
+  }
+}
+@media (min-width: 31.25em) {
+  .breakpoint-default-feature-to-ems {
+    content: "$single-pixel-value";
+    content: "@media (min-width: 31.25em)";
+  }
+}
+@media (min-width: 30em) {
+  .breakpoint-default-feature-to-ems {
+    content: "$single-em-value";
+    content: "@media (min-width: 30em)";
+  }
+}"
+`;
+
+exports[`Compile > 20_feature_values-memo.scss 1`] = `
+"/*
+ * Single value with feature
+ * $feature-first : height 500px;
+ * $value-first : 500px height;
+ * $arbitrary-feature : lion 500px;
+ * $feature-value-both-strings : portrait orientation;
+ */
+@media (height: 500px) {
+  .foo {
+    content: "$feature-first";
+    content: "@media (height: 500px)";
+  }
+}
+@media (height: 500px) {
+  .foo {
+    content: "$value-first";
+    content: "@media (height: 500px)";
+  }
+}
+@media (lion: 500px) {
+  .foo {
+    content: "$arbitrary-feature";
+    content: "@media (lion: 500px)";
+  }
+}
+@media (orientation: portrait) {
+  .foo {
+    content: "$feature-value-both-strings";
+    content: "@media (orientation: portrait)";
+  }
+}
+@media (height: 500px) {
+  .foo {
+    content: "$feature-first";
+    content: "@media (height: 500px)";
+  }
+}
+@media (height: 500px) {
+  .foo {
+    content: "$value-first";
+    content: "@media (height: 500px)";
+  }
+}
+@media (lion: 500px) {
+  .foo {
+    content: "$arbitrary-feature";
+    content: "@media (lion: 500px)";
+  }
+}
+@media (orientation: portrait) {
+  .foo {
+    content: "$feature-value-both-strings";
+    content: "@media (orientation: portrait)";
+  }
+}
+
+@media (height: 500px) {
+  .bar {
+    content: "$feature-first";
+    content: "@media (height: 31.25em)";
+  }
+}
+@media (height: 500px) {
+  .bar {
+    content: "$value-first";
+    content: "@media (height: 31.25em)";
+  }
+}
+@media (lion: 500px) {
+  .bar {
+    content: "$arbitrary-feature";
+    content: "@media (lion: 31.25em)";
+  }
+}
+@media (height: 500px) {
+  .bar {
+    content: "$feature-first";
+    content: "@media (height: 31.25em)";
+  }
+}
+@media (height: 500px) {
+  .bar {
+    content: "$value-first";
+    content: "@media (height: 31.25em)";
+  }
+}
+@media (lion: 500px) {
+  .bar {
+    content: "$arbitrary-feature";
+    content: "@media (lion: 31.25em)";
+  }
+}"
+`;
+
+exports[`Compile > 21_min_max-memo.scss 1`] = `
+"/*
+ * Set min-width/max-width
+ * if both values are numbers
+ * $min-max-default-feature : 500px 700px;
+ */
+@media (min-width: 500px) and (max-width: 700px) {
+  .foo {
+    content: "$min-max-default-feature";
+    content: "@media (min-width: 500px) and (max-width: 700px)";
+  }
+}
+@media (min-width: 500px) and (max-width: 700px) {
+  .foo {
+    content: "$min-max-default-feature";
+    content: "@media (min-width: 500px) and (max-width: 700px)";
+  }
+}
+
+@media (min-width: 500px) and (max-width: 700px) {
+  .bar {
+    content: "$min-max-default-feature";
+    content: "@media (min-width: 31.25em) and (max-width: 43.75em)";
+  }
+}
+@media (min-width: 500px) and (max-width: 700px) {
+  .bar {
+    content: "$min-max-default-feature";
+    content: "@media (min-width: 31.25em) and (max-width: 43.75em)";
+  }
+}"
+`;
+
+exports[`Compile > 22_min_max_feature-memo.scss 1`] = `
+"/*
+ * Set min/max of feature
+ * if there are two numbers and a feature
+ * $feature-min-max : height 300px 700px;
+ * $min-max-feature : 300px 700px height;
+ * $arbitrary-feature-min-max : lion 300px 700px;
+ */
+@media (min-height: 300px) and (max-height: 700px) {
+  .min-max-feature {
+    content: "$feature-min-max";
+    content: "@media (min-height: 300px) and (max-height: 700px)";
+  }
+}
+@media (min-height: 300px) and (max-height: 700px) {
+  .min-max-feature {
+    content: "$min-max-feature";
+    content: "@media (min-height: 300px) and (max-height: 700px)";
+  }
+}
+@media (min-lion: 300px) and (max-lion: 700px) {
+  .min-max-feature {
+    content: "$arbitrary-feature-min-max";
+    content: "@media (min-lion: 300px) and (max-lion: 700px)";
+  }
+}
+@media (min-height: 300px) and (max-height: 700px) {
+  .min-max-feature {
+    content: "$feature-min-max";
+    content: "@media (min-height: 300px) and (max-height: 700px)";
+  }
+}
+@media (min-height: 300px) and (max-height: 700px) {
+  .min-max-feature {
+    content: "$min-max-feature";
+    content: "@media (min-height: 300px) and (max-height: 700px)";
+  }
+}
+@media (min-lion: 300px) and (max-lion: 700px) {
+  .min-max-feature {
+    content: "$arbitrary-feature-min-max";
+    content: "@media (min-lion: 300px) and (max-lion: 700px)";
+  }
+}
+
+/* @include breakpoint-set('to ems', true); */
+@media (min-height: 300px) and (max-height: 700px) {
+  .min-max-feature-to-ems {
+    content: "$feature-min-max";
+    content: "@media (min-height: 18.75em) and (max-height: 43.75em)";
+  }
+}
+@media (min-height: 300px) and (max-height: 700px) {
+  .min-max-feature-to-ems {
+    content: "$min-max-feature";
+    content: "@media (min-height: 18.75em) and (max-height: 43.75em)";
+  }
+}
+@media (min-lion: 300px) and (max-lion: 700px) {
+  .min-max-feature-to-ems {
+    content: "$arbitrary-feature-min-max";
+    content: "@media (min-lion: 18.75em) and (max-lion: 43.75em)";
+  }
+}
+@media (min-height: 300px) and (max-height: 700px) {
+  .min-max-feature-to-ems {
+    content: "$feature-min-max";
+    content: "@media (min-height: 18.75em) and (max-height: 43.75em)";
+  }
+}
+@media (min-height: 300px) and (max-height: 700px) {
+  .min-max-feature-to-ems {
+    content: "$min-max-feature";
+    content: "@media (min-height: 18.75em) and (max-height: 43.75em)";
+  }
+}
+@media (min-lion: 300px) and (max-lion: 700px) {
+  .min-max-feature-to-ems {
+    content: "$arbitrary-feature-min-max";
+    content: "@media (min-lion: 18.75em) and (max-lion: 43.75em)";
+  }
+}"
+`;
+
+exports[`Compile > 23_multidemensional-memo.scss 1`] = `
+"/*
+ * Multidimensional lists,
+ * assume each item is a feature value pair
+ * $multidimensional : height 500px portrait orientation;
+ */
+@media (height: 500px) and (orientation: portrait) {
+  .multidimensional {
+    content: "$multidimensional";
+    content: "@media (height: 500px) and (orientation: portrait)";
+  }
+}
+@media (height: 500px) and (orientation: portrait) {
+  .multidimensional {
+    content: "$multidimensional";
+    content: "@media (height: 500px) and (orientation: portrait)";
+  }
+}
+
+/* @include breakpoint-set('to ems', true); */
+@media (height: 500px) and (orientation: portrait) {
+  .multidimensional-to-ems {
+    content: "$multidimensional";
+    content: "@media (height: 31.25em) and (orientation: portrait)";
+  }
+}
+@media (height: 500px) and (orientation: portrait) {
+  .multidimensional-to-ems {
+    content: "$multidimensional";
+    content: "@media (height: 31.25em) and (orientation: portrait)";
+  }
+}"
+`;
+
+exports[`Compile > 24_basic_or-memo.scss 1`] = `
+"/*
+ * 'OR' mediaqueries.
+ * tests separated by commas
+ * $basic-or : max-width 350px, 500px 600px;
+ * $basic-or-media : 500px, tv 700px color;
+ */
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or {
+    content: "$basic-or";
+    content: "@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)";
+  }
+}
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or {
+    content: "$basic-or";
+    content: "@media (max-width: 350px), (min-width: 500px) and (max-width: 600px)";
+  }
+}
+
+@media (min-width: 500px), tv and (min-width: 700px) and (color) {
+  .basic-or-media {
+    content: "$basic-or";
+    content: "@media (min-width: 500px), tv and (min-width: 700px) and (color)";
+  }
+}
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or-media {
+    content: "$basic-or";
+    content: "@media (min-width: 500px), tv and (min-width: 700px) and (color)";
+  }
+}
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or-media {
+    content: "$basic-or";
+    content: "@media (min-width: 500px), tv and (min-width: 700px) and (color)";
+  }
+}
+
+/* @include breakpoint-set('to ems', true); */
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or-to-ems {
+    content: "$basic-or";
+    content: "@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)";
+  }
+}
+@media (max-width: 350px), (min-width: 500px) and (max-width: 600px) {
+  .basic-or-to-ems {
+    content: "$basic-or";
+    content: "@media (min-width: 31.25em), tv and (min-width: 43.75em) and (color)";
+  }
+}"
+`;
+
+exports[`Compile > 25_one_sided_feature-memo.scss 1`] = `
+"/*
+ * One-sided features (ie. monochrome)
+ * $monochrome : monochrome;
+ * $monochrome-double : 300px monochrome;
+ * $multidimensional-plus-one-sided : height 500px portrait orientation monochrome;
+ */
+@media (monochrome) {
+  .one-sided {
+    content: "$monochrome";
+    content: "@media (monochrome)";
+  }
+}
+@media (monochrome) and (min-width: 300px) {
+  .one-sided {
+    content: "$monochrome-double";
+    content: "@media (monochrome) and (min-width: 300px)";
+  }
+}
+@media (height: 500px) and (orientation: portrait) and (monochrome) {
+  .one-sided {
+    content: "$multidimensional-plus-one-sided";
+    content: "@media (height: 500px) and (orientation: portrait) and (monochrome)";
+  }
+}
+@media (monochrome) {
+  .one-sided {
+    content: "$monochrome";
+    content: "@media (monochrome)";
+  }
+}
+@media (monochrome) and (min-width: 300px) {
+  .one-sided {
+    content: "$monochrome-double";
+    content: "@media (monochrome) and (min-width: 300px)";
+  }
+}
+@media (height: 500px) and (orientation: portrait) and (monochrome) {
+  .one-sided {
+    content: "$multidimensional-plus-one-sided";
+    content: "@media (height: 500px) and (orientation: portrait) and (monochrome)";
+  }
+}
+
+/* @include breakpoint-set('to ems', true); */
+@media (monochrome) and (min-width: 300px) {
+  .one-sided-to-ems {
+    content: "$monochrome-double";
+    content: "@media (monochrome) and (min-width: 18.75em)";
+  }
+}
+@media (height: 500px) and (orientation: portrait) and (monochrome) {
+  .one-sided-to-ems {
+    content: "$multidimensional-plus-one-sided";
+    content: "@media (height: 31.25em) and (orientation: portrait) and (monochrome)";
+  }
+}
+@media (monochrome) and (min-width: 300px) {
+  .one-sided-to-ems {
+    content: "$monochrome-double";
+    content: "@media (monochrome) and (min-width: 18.75em)";
+  }
+}
+@media (height: 500px) and (orientation: portrait) and (monochrome) {
+  .one-sided-to-ems {
+    content: "$multidimensional-plus-one-sided";
+    content: "@media (height: 31.25em) and (orientation: portrait) and (monochrome)";
+  }
+}"
+`;
+
+exports[`Compile > 26_not-memo.scss 1`] = `
+"/*
+ * One-sided features (ie. monochrome)
+ * $not : not screen;
+ */
+@media not screen {
+  .not {
+    content: "$not";
+    content: "@media not screen";
+  }
+}
+@media not tv and (min-width: 500px) {
+  .not {
+    content: "$not-plus-default";
+    content: "@media not tv and (min-width: 500px)";
+  }
+}
+@media not screen {
+  .not {
+    content: "$not";
+    content: "@media not screen";
+  }
+}
+@media not tv and (min-width: 500px) {
+  .not {
+    content: "$not-plus-default";
+    content: "@media not tv and (min-width: 500px)";
+  }
+}"
+`;
+
+exports[`Compile > 27_double_string-memo.scss 1`] = `
+"/*
+ * Double string feature (i.e. string: string)
+ * $aspect-ratio : min-aspect-ratio 300/250;
+ * $device-aspect-ratio : max-device-aspect-ratio 320/480;
+ */
+@media (min-aspect-ratio: 300/250) {
+  .aspect-ratio {
+    content: "$aspect-ratio";
+    content: "@media (min-aspect-ratio: 300/250)";
+  }
+}
+@media (max-device-aspect-ratio: 320/480) {
+  .aspect-ratio {
+    content: "$device-aspect-ratio";
+    content: "@media (max-device-pixel-ratio: 320/480)";
+  }
+}
+@media (min-aspect-ratio: 300/250) {
+  .aspect-ratio {
+    content: "$aspect-ratio";
+    content: "@media (min-aspect-ratio: 300/250)";
+  }
+}
+@media (max-device-aspect-ratio: 320/480) {
+  .aspect-ratio {
+    content: "$device-aspect-ratio";
+    content: "@media (max-device-pixel-ratio: 320/480)";
+  }
+}"
+`;
+
+exports[`Compile > 28_legacy_syntax-memo.scss 1`] = `
+"/*
+ * Legacy syntax
+ */
+@media not screen and (min-width: 500px) {
+  .legacy {
+    content: "$legacy";
+    content: "@media not screen and (min-width: 500px)";
+  }
+}
+@media not screen and (min-width: 500px) {
+  .legacy {
+    content: "$legacy";
+    content: "@media not screen and (min-width: 500px)";
+  }
+}"
+`;
+
+exports[`Compile > 29_breakpoint_resolutions-memo.scss 1`] = `
+"/*
+ * Resolution queries, device pixel ratio and standard resolution
+ * $device-pixel-ratio: resolution 2dppx
+ * $resolution: min-resolution 192dpi
+ */
+@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi) {
+  .resolution {
+    content: "resolution" 2dppx;
+    content: "@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)";
+  }
+}
+@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2) {
+  .resolution {
+    content: "min-resolution" 192dpi;
+    content: "@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2)";
+  }
+}
+@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi) {
+  .resolution {
+    content: "resolution" 2dppx;
+    content: "@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)";
+  }
+}
+@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2) {
+  .resolution {
+    content: "min-resolution" 192dpi;
+    content: "@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2)";
+  }
+}
+@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi) {
+  .resolution {
+    content: "resolution" 2dppx;
+    content: "@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)";
+  }
+}"
+`;
+
+exports[`Compile > 30_context_simple-memo.scss 1`] = `
+"/*
+ * Queries to test Breakpoint Get Context
+ * $context-simple: 500px
+ * $context-single: monochrome
+ * $context-and: 500px 700px
+ * $context-max: max-width 700px
+ * $context-string: orientation portrait
+ * $context-triple: height 800px 1000px
+ * $context-media-type: print
+ * $context-or: 500px max-height 1200px, 600px 700px
+ * $context-complex: 500px, screen 500px 700px, 300px monochrome
+ */
+@media (min-width: 500px) {
+  .context {
+    content: "@media (min-width: 500px)";
+    -min-width: 500px;
+  }
+}
+@media (monochrome) {
+  .context {
+    content: "@media (monochrome)";
+    -monochrome: monochrome;
+  }
+}
+@media (min-width: 500px) and (max-width: 700px) {
+  .context {
+    content: "@media (min-width: 500px) and (max-width: 700px)";
+    -min-width: 500px;
+    -max-width: 700px;
+  }
+}
+@media (max-width: 700px) {
+  .context {
+    content: "@media (max-width: 700px)";
+    -max-width: 700px;
+  }
+}
+@media (orientation: portrait) {
+  .context {
+    content: "@media (orientation: portrait)";
+    -orientation: portrait;
+  }
+}
+@media (min-height: 800px) and (max-height: 1000px) {
+  .context {
+    content: "@media (min-height: 800px) and (max-height: 1000px)";
+    -min-height: 800px;
+    -max-height: 1000px;
+  }
+}
+@media print {
+  .context {
+    content: "@media print";
+    -media: print;
+  }
+}
+@media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px) {
+  .context {
+    content: "@media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px)";
+    -min-width: 500px 600px;
+    -max-width: false 700px;
+    -max-height: 1200px false;
+    -orientation: false;
+  }
+}
+@media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px) {
+  .context {
+    content: "@media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px)";
+    -min-width: 500px 500px 300px;
+    -max-width: false 700px false;
+    -media: all screen all;
+    -monochrome: false false monochrome;
+  }
+}"
+`;
+
+exports[`Compile > 31_context_complex-memo.scss 1`] = `
+"/**
+ * Dynamic contexts.
+ */
+@media (min-width: 300px), print, (min-width: 200px) {
+  #multi-media {
+    -media: all print all;
+  }
+}"
+`;
+
+exports[`Compile > 32_no_query_fallback-memo.scss 1`] = `
+"/**
+ * IE no-query fallbacks.
+ */
+/*
+ * Legacy syntax
+ */
+.no-mq .legacy {
+  content: "$legacy";
+  content: "@media not screen and (min-width: 500px)";
+}
+.no-mq .legacy {
+  content: "$legacy";
+  content: "@media not screen and (min-width: 500px)";
+}
+
+/*
+ * No Query
+ */
+.no-mq .no-query {
+  _query: "700px, no-query .no-mq";
+  _expected: "@media (min-width: 700px)";
+}
+.no-mq .no-query {
+  _query: "700px, no-query .no-mq";
+  _expected: "@media (min-width: 700px)";
+}"
+`;
+
+exports[`Compile > 33_media-memo.scss 1`] = `
+"/*
+ * Media features (ie. tv)
+ * $simple-media : tv;
+ * $media-plus-default : tv 500px;
+ * $media-plus-fence : tv 500px 700px;
+ * $media-only : only print;
+ * $media-not : not print;
+ * $media-not-plus-fenced : not print 500px 700px;
+ */
+@media tv {
+  .media {
+    content: "$simple-media";
+    content: "@media tv";
+  }
+}
+@media tv and (min-width: 500px) {
+  .media {
+    content: "$media-plus-default";
+    content: "@media not tv and (min-width: 500px)";
+  }
+}
+@media tv and (min-width: 500px) and (max-width: 700px) {
+  .media {
+    content: "$media-plus-fence";
+    content: "@media tv and (min-width: 500px) and (max-width: 700px)";
+  }
+}
+@media only print {
+  .media {
+    content: "$media-only";
+    content: "@media only print";
+  }
+}
+@media not print {
+  .media {
+    content: "$media-not)";
+    content: "@media not print";
+  }
+}
+@media not print and (min-width: 500px) and (max-width: 700px) {
+  .media {
+    content: "$media-not-plus-fenced";
+    content: "@media not print and (min-width: 500px) and (max-width: 700px)";
+  }
+}
+@media tv {
+  .media {
+    content: "$simple-media";
+    content: "@media tv";
+  }
+}
+@media tv and (min-width: 500px) {
+  .media {
+    content: "$media-plus-default";
+    content: "@media not tv and (min-width: 500px)";
+  }
+}
+@media tv and (min-width: 500px) and (max-width: 700px) {
+  .media {
+    content: "$media-plus-fence";
+    content: "@media tv and (min-width: 500px) and (max-width: 700px)";
+  }
+}
+@media only print {
+  .media {
+    content: "$media-only";
+    content: "@media only print";
+  }
+}
+@media not print {
+  .media {
+    content: "$media-not)";
+    content: "@media not print";
+  }
+}
+@media not print and (min-width: 500px) and (max-width: 700px) {
+  .media {
+    content: "$media-not-plus-fenced";
+    content: "@media not print and (min-width: 500px) and (max-width: 700px)";
+  }
+}"
+`;
+
+exports[`Compile > 34_breakpoint_function-memo.scss 1`] = `
+"/**
+  * Breakpoint Function
+  * - Returns either a map of the query, fallback, context, and query count or a map of context values
+**/
+.query {
+  /* Single Pixel Value */
+  _test: "breakpoint(500px)";
+  _query: " (min-width: 500px)";
+  _fallback: false;
+  _context-holder: (min-width: 500px);
+  _query-count: 1;
+  /* Fenced with Media */
+  _test: "breakpoint(not print 500px 700px)";
+  _query: "not print and (min-width: 500px) and (max-width: 700px)";
+  _fallback: false;
+  _context-holder: (media: "not print", min-width: 500px, max-width: 700px);
+  _query-count: 1;
+  /* Or Query */
+  _test: "breakpoint(400px min-height 200px, 300px 325px orientation portriat monochrome)";
+  _query: " (min-width: 400px) and (min-height: 200px),  (min-width: 300px) and (max-width: 325px) and (orientation: portriat) and (monochrome)";
+  _fallback: false;
+  _context-holder: (min-width: 400px 300px, "min-height": 200px false, max-width: false 325px, orientation: false portriat, "monochrome": false monochrome);
+  _query-count: 2;
+  /* No Query */
+  _test: "breakpoint(700px, no-query .no-mq)";
+  _query: " (min-width: 700px)";
+  _fallback: ".no-mq";
+  _context-holder: (min-width: 700px);
+  _query-count: 1;
+  /* No Query, Or */
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _query: "not screen,  (min-width: 500px)";
+  _fallback: ".no-mq";
+  _context-holder: (media: "not screen" all, min-width: false 500px);
+  _query-count: 2;
+}
+
+.context {
+  /* Single Pixel Value */
+  _test: "breakpoint(500px, 'min-width')";
+  _min-width: 500px;
+  _height: false;
+  _no-query: false;
+  /* Fenced with Media */
+  _test: "breakpoint(not print 500px 700px, 'min-width', 'max-width', 'media')";
+  _min-width: 500px;
+  _max-width: 700px;
+  _media: "not print";
+  /* Or Query */
+  _test: "breakpoint(400px min-height 200px, 300px 325px orientation portriat monochrome)";
+  _min-width: 400px 300px;
+  _min-height: 200px false;
+  _orientation: false portriat;
+  _no-query: false;
+  /* No Query */
+  _test: "breakpoint(700px, no-query .no-mq)";
+  _min-width: 700px;
+  _media: all;
+  _no-query: ".no-mq";
+  /* No Query, Or */
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+}"
+`;
+
+exports[`Compile > 35_memoization.scss 1`] = `
+"/**
+  * Memoized Output
+  * - Compile time should be reduced for like calls
+**/
+.memoize--simple-feature {
+  _memoization: "()";
+}
+
+.memoize--complex-feature {
+  _memoization: '("breakpoint": ("breakpoint 500px false": ("query": " (min-width: 500px)", "fallback": false, "context holder": (min-width: 500px), "query count": 1)))';
+}
+
+.memoize--shared-feature {
+  _memoization: '("breakpoint": ("breakpoint 500px false": ("query": " (min-width: 500px)", "fallback": false, "context holder": (min-width: 500px), "query count": 1), "breakpoint height 500px portrait orientation monochrome false": ("query": " (height: 500px) and (orientation: portrait) and (monochrome)", "fallback": false, "context holder": (height: 500px, orientation: portrait, "monochrome": monochrome), "query count": 1)))';
+}
+
+.memoize--or-query {
+  _memoization: '("breakpoint": ("breakpoint 500px false": ("query": " (min-width: 500px)", "fallback": false, "context holder": (min-width: 500px), "query count": 1), "breakpoint height 500px portrait orientation monochrome false": ("query": " (height: 500px) and (orientation: portrait) and (monochrome)", "fallback": false, "context holder": (height: 500px, orientation: portrait, "monochrome": monochrome), "query count": 1), "breakpoint height 500px false": ("query": " (height: 500px)", "fallback": false, "context holder": (height: 500px), "query count": 1)))';
+}
+
+.memoize--with-fallback {
+  _memoization: '("breakpoint": ("breakpoint 500px false": ("query": " (min-width: 500px)", "fallback": false, "context holder": (min-width: 500px), "query count": 1), "breakpoint height 500px portrait orientation monochrome false": ("query": " (height: 500px) and (orientation: portrait) and (monochrome)", "fallback": false, "context holder": (height: 500px, orientation: portrait, "monochrome": monochrome), "query count": 1), "breakpoint height 500px false": ("query": " (height: 500px)", "fallback": false, "context holder": (height: 500px), "query count": 1), "breakpoint 400px min-height 200px, 300px 325px orientation portriat monochrome false": ("query": " (min-width: 400px) and (min-height: 200px),  (min-width: 300px) and (max-width: 325px) and (orientation: portriat) and (monochrome)", "fallback": false, "context holder": (min-width: 400px 300px, "min-height": 200px false, max-width: false 325px, orientation: false portriat, "monochrome": false monochrome), "query count": 2)))';
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+.no-mq .memoize--with-fallback {
+  _test: "breakpoint(700px, no-query .no-mq)";
+}
+
+.memoize--breakpoint-function-context {
+  _memoization: '("breakpoint": ("breakpoint 500px false": ("query": " (min-width: 500px)", "fallback": false, "context holder": (min-width: 500px), "query count": 1), "breakpoint height 500px portrait orientation monochrome false": ("query": " (height: 500px) and (orientation: portrait) and (monochrome)", "fallback": false, "context holder": (height: 500px, orientation: portrait, "monochrome": monochrome), "query count": 1), "breakpoint height 500px false": ("query": " (height: 500px)", "fallback": false, "context holder": (height: 500px), "query count": 1), "breakpoint 400px min-height 200px, 300px 325px orientation portriat monochrome false": ("query": " (min-width: 400px) and (min-height: 200px),  (min-width: 300px) and (max-width: 325px) and (orientation: portriat) and (monochrome)", "fallback": false, "context holder": (min-width: 400px 300px, "min-height": 200px false, max-width: false 325px, orientation: false portriat, "monochrome": false monochrome), "query count": 2), "breakpoint 700px, no-query .no-mq false": ("query": " (min-width: 700px)", "fallback": ".no-mq", "context holder": (min-width: 700px), "query count": 1)))';
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+  _test: "breakpoint(not screen, 500px, no-query .no-mq)";
+  _min-width: false 500px;
+  _media: "not screen" all;
+  _no-query: ".no-mq";
+}"
+`;
