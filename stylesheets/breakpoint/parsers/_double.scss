@@ -3,9 +3,9 @@
 //////////////////////////////
 // Import Pieces
 //////////////////////////////
-@import "double/default-pair";
-@import "double/double-string";
-@import "double/default";
+@use "./double/default-pair";
+@use "./double/double-string";
+@use "./double/default";
 
 @function breakpoint-parse-double($feature, $empty-media, $first) {
     $parsed: "";
@@ -20,7 +20,7 @@
 
     // If we've got two numbers, we know we need to use the default pair because there are no media queries that has a media feature that is a number
     @if meta.type-of($first) == "number" and meta.type-of($second) == "number" {
-        $parsed: breakpoint-parse-default-pair($first, $second);
+        $parsed: default-pair.breakpoint-parse-default-pair($first, $second);
     }
     // If they are both strings, we send it through the string parser
     @else if
@@ -29,11 +29,11 @@
         meta.type-of($second) ==
         "string"
     {
-        $parsed: breakpoint-parse-double-string($first, $second);
+        $parsed: double-string.breakpoint-parse-double-string($first, $second);
     }
     // If it's a string/number pair, we parse it as a normal double
     @else {
-        $parsed: breakpoint-parse-double-default($first, $second);
+        $parsed: default.breakpoint-parse-double-default($first, $second);
     }
 
     @return $leader + $parsed;

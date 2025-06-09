@@ -1,4 +1,5 @@
-@import "variables";
+@use "variables";
+@use "../../stylesheets/breakpoint";
 
 $context-simple: 500px;
 $context-single: monochrome;
@@ -27,48 +28,48 @@ $context-complex:
  * $context-complex: #{$context-complex}
  */
 .context {
-    @include breakpoint($context-simple) {
+    @include breakpoint.breakpoint($context-simple) {
         content: "@media (min-width: 500px)";
-        -min-width: breakpoint-get-context(min-width);
+        -min-width: breakpoint.breakpoint-get-context(min-width);
     }
-    @include breakpoint($context-single) {
+    @include breakpoint.breakpoint($context-single) {
         content: "@media (monochrome)";
-        -monochrome: breakpoint-get-context(monochrome);
+        -monochrome: breakpoint.breakpoint-get-context(monochrome);
     }
-    @include breakpoint($context-and) {
+    @include breakpoint.breakpoint($context-and) {
         content: "@media (min-width: 500px) and (max-width: 700px)";
-        -min-width: breakpoint-get-context(min-width);
-        -max-width: breakpoint-get-context(max-width);
+        -min-width: breakpoint.breakpoint-get-context(min-width);
+        -max-width: breakpoint.breakpoint-get-context(max-width);
     }
-    @include breakpoint($context-max) {
+    @include breakpoint.breakpoint($context-max) {
         content: "@media (max-width: 700px)";
-        -max-width: breakpoint-get-context(max-width);
+        -max-width: breakpoint.breakpoint-get-context(max-width);
     }
-    @include breakpoint($context-string) {
+    @include breakpoint.breakpoint($context-string) {
         content: "@media (orientation: portrait)";
-        -orientation: breakpoint-get-context(orientation);
+        -orientation: breakpoint.breakpoint-get-context(orientation);
     }
-    @include breakpoint($context-triple) {
+    @include breakpoint.breakpoint($context-triple) {
         content: "@media (min-height: 800px) and (max-height: 1000px)";
-        -min-height: breakpoint-get-context(min-height);
-        -max-height: breakpoint-get-context(max-height);
+        -min-height: breakpoint.breakpoint-get-context(min-height);
+        -max-height: breakpoint.breakpoint-get-context(max-height);
     }
-    @include breakpoint($context-media-type) {
+    @include breakpoint.breakpoint($context-media-type) {
         content: "@media print";
-        -media: breakpoint-get-context(media);
+        -media: breakpoint.breakpoint-get-context(media);
     }
-    @include breakpoint($context-or) {
+    @include breakpoint.breakpoint($context-or) {
         content: "@media (min-width: 500px) and (max-height: 1200px), (min-width: 600px) and (max-width: 700px)";
-        -min-width: breakpoint-get-context(min-width);
-        -max-width: breakpoint-get-context(max-width);
-        -max-height: breakpoint-get-context(max-height);
-        -orientation: breakpoint-get-context(orientation);
+        -min-width: breakpoint.breakpoint-get-context(min-width);
+        -max-width: breakpoint.breakpoint-get-context(max-width);
+        -max-height: breakpoint.breakpoint-get-context(max-height);
+        -orientation: breakpoint.breakpoint-get-context(orientation);
     }
-    @include breakpoint($context-complex) {
+    @include breakpoint.breakpoint($context-complex) {
         content: "@media (min-width: 500px), screen and (min-width: 500px) and (max-width: 700px), (monochrome) and (min-width: 300px)";
-        -min-width: breakpoint-get-context(min-width);
-        -max-width: breakpoint-get-context(max-width);
-        -media: breakpoint-get-context(media);
-        -monochrome: breakpoint-get-context(monochrome);
+        -min-width: breakpoint.breakpoint-get-context(min-width);
+        -max-width: breakpoint.breakpoint-get-context(max-width);
+        -media: breakpoint.breakpoint-get-context(media);
+        -monochrome: breakpoint.breakpoint-get-context(monochrome);
     }
 }

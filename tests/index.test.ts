@@ -1,5 +1,6 @@
 import path from "node:path";
-import { pathToFileURL } from "node:url";
+
+// import { pathToFileURL } from "node:url";
 
 import { globSync } from "glob";
 import sass from "sass";
@@ -11,32 +12,31 @@ const tests = globSync(path.join(__dirname, "./tests/**.scss")).filter(
 
 const testMacro = async (testFile: string) => {
     const css = await sass.compileAsync(testFile, {
-        importers: [
-            {
-                findFileUrl(url) {
-                    if (url.startsWith("breakpoint")) {
-                        return new URL(
-                            url,
-                            pathToFileURL(
-                                path.join(process.cwd(), "stylesheets/"),
-                            ),
-                        );
-                    } else if (url === "memo" || url.startsWith("sassy-maps")) {
-                        return new URL(
-                            url,
-                            pathToFileURL(
-                                path.join(
-                                    process.cwd(),
-                                    "node_modules/sassy-maps/sass/",
-                                ),
-                            ),
-                        );
-                    }
-
-                    return null;
-                },
-            },
-        ],
+        // importers: [
+        //     {
+        //         findFileUrl(url) {
+        //             if (url.startsWith("breakpoint")) {
+        //                 return new URL(
+        //                     url,
+        //                     pathToFileURL(
+        //                         path.join(process.cwd(), "stylesheets/"),
+        //                     ),
+        //                 );
+        //             } else if (url === "memo" || url.startsWith("sassy-maps")) {
+        //                 return new URL(
+        //                     url,
+        //                     pathToFileURL(
+        //                         path.join(
+        //                             process.cwd(),
+        //                             "node_modules/sassy-maps/sass/",
+        //                         ),
+        //                     ),
+        //                 );
+        //             }
+        //             return null;
+        //         },
+        //     },
+        // ],
     });
     expect(css.css).toMatchSnapshot();
 };

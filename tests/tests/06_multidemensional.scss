@@ -1,29 +1,31 @@
-@import "variables";
+@use "variables";
+@use "../../stylesheets/breakpoint";
+
 /*
  * Multidimensional lists,
  * assume each item is a feature value pair
- * $multidimensional : #{$multidimensional};
+ * $multidimensional : #{variables.$multidimensional};
  */
 .multidimensional {
-    @include breakpoint($multidimensional) {
+    @include breakpoint.breakpoint(variables.$multidimensional) {
         content: "$multidimensional";
         content: "@media (height: 500px) and (orientation: portrait)";
     }
 
-    @include mq($multidimensional) {
+    @include breakpoint.mq(variables.$multidimensional) {
         content: "$multidimensional";
         content: "@media (height: 500px) and (orientation: portrait)";
     }
 }
 /* @include breakpoint-set('to ems', true); */
-@include breakpoint-set("to ems", true);
+@include breakpoint.breakpoint-set("to ems", true);
 .multidimensional-to-ems {
-    @include breakpoint($multidimensional) {
+    @include breakpoint.breakpoint(variables.$multidimensional) {
         content: "$multidimensional";
         content: "@media (height: 31.25em) and (orientation: portrait)";
     }
 
-    @include mq($multidimensional) {
+    @include breakpoint.mq(variables.$multidimensional) {
         content: "$multidimensional";
         content: "@media (height: 31.25em) and (orientation: portrait)";
     }

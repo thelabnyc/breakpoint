@@ -1,32 +1,34 @@
-@import "variables";
+@use "variables";
+@use "../../stylesheets/breakpoint";
+
 /*
  * Resolution queries, device pixel ratio and standard resolution
- * $device-pixel-ratio: #{$device-pixel-ratio}
- * $resolution: #{$resolution}
+ * $device-pixel-ratio: #{variables.$device-pixel-ratio}
+ * $resolution: #{variables.$resolution}
  */
-@include breakpoint-set("transform resolutions", true);
+@include breakpoint.breakpoint-set("transform resolutions", true);
 
 .resolution {
-    @include breakpoint($device-pixel-ratio) {
-        content: $device-pixel-ratio;
+    @include breakpoint.breakpoint(variables.$device-pixel-ratio) {
+        content: variables.$device-pixel-ratio;
         content: "@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)";
     }
-    @include breakpoint($resolution) {
-        content: $resolution;
+    @include breakpoint.breakpoint(variables.$resolution) {
+        content: variables.$resolution;
         content: "@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2)";
     }
 
-    @include mq($device-pixel-ratio) {
-        content: $device-pixel-ratio;
+    @include breakpoint.mq(variables.$device-pixel-ratio) {
+        content: variables.$device-pixel-ratio;
         content: "@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)";
     }
-    @include mq($resolution) {
-        content: $resolution;
+    @include breakpoint.mq(variables.$resolution) {
+        content: variables.$resolution;
         content: "@media (min-resolution: 192dpi), (-webkit-min-device-pixel-ratio: 2), (min--moz-device-pixel-ratio: 2)";
     }
 
-    @include respond-to("device pixel ratio") {
-        content: $device-pixel-ratio;
+    @include breakpoint.respond-to("device pixel ratio") {
+        content: variables.$device-pixel-ratio;
         content: "@media (resolution: 2dppx), (-webkit-device-pixel-ratio: 2), (-moz-device-pixel-ratio: 2), (resolution: 192dpi)";
     }
 }

@@ -1,16 +1,18 @@
-@import "variables";
+@use "variables";
+@use "../../stylesheets/breakpoint";
+
 /*
  * Legacy syntax
  */
-@include breakpoint-set("legacy syntax", true);
+@include breakpoint.breakpoint-set("legacy syntax", true);
 
 .legacy {
-    @include breakpoint($legacy) {
+    @include breakpoint.breakpoint(variables.$legacy) {
         content: "$legacy";
         content: "@media not screen and (min-width: 500px)";
     }
 
-    @include mq($legacy) {
+    @include breakpoint.mq(variables.$legacy) {
         content: "$legacy";
         content: "@media not screen and (min-width: 500px)";
     }

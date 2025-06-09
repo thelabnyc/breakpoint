@@ -1,4 +1,6 @@
-@import "variables";
+@use "variables";
+@use "../../stylesheets/breakpoint";
+
 /**
  * Dynamic contexts.
  */
@@ -6,7 +8,7 @@
 #dynamic {
     // What test do we want here?
 
-    @include breakpoint($dynamic-context) {
+    @include breakpoint.breakpoint(variables.$dynamic-context) {
         // What test do we want here?
     }
 }
@@ -14,7 +16,7 @@
 $multi-media: 300px, print, 200px;
 
 #multi-media {
-    @include breakpoint($multi-media) {
-        -media: breakpoint-get-context("media");
+    @include breakpoint.breakpoint($multi-media) {
+        -media: breakpoint.breakpoint-get-context("media");
     }
 }

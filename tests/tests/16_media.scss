@@ -1,61 +1,63 @@
-@import "variables";
+@use "variables";
+@use "../../stylesheets/breakpoint";
+
 /*
  * Media features (ie. tv)
- * $simple-media : #{$simple-media};
- * $media-plus-default : #{$media-plus-default};
- * $media-plus-fence : #{$media-plus-fence};
- * $media-only : #{$media-only};
- * $media-not : #{$media-not};
- * $media-not-plus-fenced : #{$media-not-plus-fenced};
+ * $simple-media : #{variables.$simple-media};
+ * $media-plus-default : #{variables.$media-plus-default};
+ * $media-plus-fence : #{variables.$media-plus-fence};
+ * $media-only : #{variables.$media-only};
+ * $media-not : #{variables.$media-not};
+ * $media-not-plus-fenced : #{variables.$media-not-plus-fenced};
  */
 
 .media {
-    @include breakpoint($simple-media) {
+    @include breakpoint.breakpoint(variables.$simple-media) {
         content: "$simple-media";
         content: "@media tv";
     }
-    @include breakpoint($media-plus-default) {
+    @include breakpoint.breakpoint(variables.$media-plus-default) {
         content: "$media-plus-default";
         content: "@media not tv and (min-width: 500px)";
     }
-    @include breakpoint($media-plus-fence) {
+    @include breakpoint.breakpoint(variables.$media-plus-fence) {
         content: "$media-plus-fence";
         content: "@media tv and (min-width: 500px) and (max-width: 700px)";
     }
-    @include breakpoint($media-only) {
+    @include breakpoint.breakpoint(variables.$media-only) {
         content: "$media-only";
         content: "@media only print";
     }
-    @include breakpoint($media-not) {
+    @include breakpoint.breakpoint(variables.$media-not) {
         content: "$media-not)";
         content: "@media not print";
     }
-    @include breakpoint($media-not-plus-fenced) {
+    @include breakpoint.breakpoint(variables.$media-not-plus-fenced) {
         content: "$media-not-plus-fenced";
         content: "@media not print and (min-width: 500px) and (max-width: 700px)";
     }
 
-    @include mq($simple-media) {
+    @include breakpoint.mq(variables.$simple-media) {
         content: "$simple-media";
         content: "@media tv";
     }
-    @include mq($media-plus-default) {
+    @include breakpoint.mq(variables.$media-plus-default) {
         content: "$media-plus-default";
         content: "@media not tv and (min-width: 500px)";
     }
-    @include mq($media-plus-fence) {
+    @include breakpoint.mq(variables.$media-plus-fence) {
         content: "$media-plus-fence";
         content: "@media tv and (min-width: 500px) and (max-width: 700px)";
     }
-    @include mq($media-only) {
+    @include breakpoint.mq(variables.$media-only) {
         content: "$media-only";
         content: "@media only print";
     }
-    @include mq($media-not) {
+    @include breakpoint.mq(variables.$media-not) {
         content: "$media-not)";
         content: "@media not print";
     }
-    @include mq($media-not-plus-fenced) {
+    @include breakpoint.mq(variables.$media-not-plus-fenced) {
         content: "$media-not-plus-fenced";
         content: "@media not print and (min-width: 500px) and (max-width: 700px)";
     }

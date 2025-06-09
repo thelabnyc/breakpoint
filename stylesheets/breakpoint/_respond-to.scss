@@ -1,6 +1,9 @@
 @use "sass:list";
 @use "sass:map";
 @use "sass:meta";
+
+@use "./api" as breakpoint;
+
 ////////////////////////
 // Default the Breakpoints variable
 ////////////////////////
@@ -22,7 +25,10 @@ $BREAKPOINTS: () !default;
         @warn "Your breakpoints aren't a map! `respond-to` expects a map. Please check the value of $BREAKPOINTS variable.";
         @content;
     } @else if map.has-key($BREAKPOINTS, $context) {
-        @include breakpoint(map.get($BREAKPOINTS, $context), $no-query) {
+        @include breakpoint.breakpoint(
+            map.get($BREAKPOINTS, $context),
+            $no-query
+        ) {
             @content;
         }
     } @else if not map.has-key($BREAKPOINTS, $context) {

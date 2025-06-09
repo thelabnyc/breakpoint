@@ -29,10 +29,9 @@
   "devDependencies": {
     "@thelabnyc/standards": "^0.4.6",
     "glob": "^11.0.2",
-    "sassy-maps": "github:at-import/Sassy-Maps",
     "vitest": "^3.2.3"
   },
   "peerDependencies": {
-    "sass": "^1.25"
+    "sass": "^1.89.1"
   }
 }

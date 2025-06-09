@@ -1,54 +1,56 @@
-@import "variables";
+@use "variables";
+@use "../../stylesheets/breakpoint";
+
 /*
  * One-sided features (ie. monochrome)
- * $monochrome : #{$monochrome};
- * $monochrome-double : #{$monochrome-double};
- * $multidimensional-plus-one-sided : #{$multidimensional-plus-one-sided};
+ * $monochrome : #{variables.$monochrome};
+ * $monochrome-double : #{variables.$monochrome-double};
+ * $multidimensional-plus-one-sided : #{variables.$multidimensional-plus-one-sided};
  */
 .one-sided {
-    @include breakpoint($monochrome) {
+    @include breakpoint.breakpoint(variables.$monochrome) {
         content: "$monochrome";
         content: "@media (monochrome)";
     }
-    @include breakpoint($monochrome-double) {
+    @include breakpoint.breakpoint(variables.$monochrome-double) {
         content: "$monochrome-double";
         content: "@media (monochrome) and (min-width: 300px)";
     }
-    @include breakpoint($multidimensional-plus-one-sided) {
+    @include breakpoint.breakpoint(variables.$multidimensional-plus-one-sided) {
         content: "$multidimensional-plus-one-sided";
         content: "@media (height: 500px) and (orientation: portrait) and (monochrome)";
     }
 
-    @include mq($monochrome) {
+    @include breakpoint.mq(variables.$monochrome) {
         content: "$monochrome";
         content: "@media (monochrome)";
     }
-    @include mq($monochrome-double) {
+    @include breakpoint.mq(variables.$monochrome-double) {
         content: "$monochrome-double";
         content: "@media (monochrome) and (min-width: 300px)";
     }
-    @include mq($multidimensional-plus-one-sided) {
+    @include breakpoint.mq(variables.$multidimensional-plus-one-sided) {
         content: "$multidimensional-plus-one-sided";
         content: "@media (height: 500px) and (orientation: portrait) and (monochrome)";
     }
 }
 /* @include breakpoint-set('to ems', true); */
-@include breakpoint-set("to ems", true);
+@include breakpoint.breakpoint-set("to ems", true);
 .one-sided-to-ems {
-    @include breakpoint($monochrome-double) {
+    @include breakpoint.breakpoint(variables.$monochrome-double) {
         content: "$monochrome-double";
         content: "@media (monochrome) and (min-width: 18.75em)";
     }
-    @include breakpoint($multidimensional-plus-one-sided) {
+    @include breakpoint.breakpoint(variables.$multidimensional-plus-one-sided) {
         content: "$multidimensional-plus-one-sided";
         content: "@media (height: 31.25em) and (orientation: portrait) and (monochrome)";
     }
 
-    @include mq($monochrome-double) {
+    @include breakpoint.mq(variables.$monochrome-double) {
         content: "$monochrome-double";
         content: "@media (monochrome) and (min-width: 18.75em)";
     }
-    @include mq($multidimensional-plus-one-sided) {
+    @include breakpoint.mq(variables.$multidimensional-plus-one-sided) {
         content: "$multidimensional-plus-one-sided";
         content: "@media (height: 31.25em) and (orientation: portrait) and (monochrome)";
     }

@@ -1,24 +1,26 @@
-@import "variables";
+@use "variables";
+@use "../../stylesheets/breakpoint";
+
 /*
  * Double string feature (i.e. string: string)
- * $aspect-ratio : #{$aspect-ratio};
- * $device-aspect-ratio : #{$device-aspect-ratio};
+ * $aspect-ratio : #{variables.$aspect-ratio};
+ * $device-aspect-ratio : #{variables.$device-aspect-ratio};
  */
 .aspect-ratio {
-    @include breakpoint($aspect-ratio) {
+    @include breakpoint.breakpoint(variables.$aspect-ratio) {
         content: "$aspect-ratio";
         content: "@media (min-aspect-ratio: 300/250)";
     }
-    @include breakpoint($device-aspect-ratio) {
+    @include breakpoint.breakpoint(variables.$device-aspect-ratio) {
         content: "$device-aspect-ratio";
         content: "@media (max-device-pixel-ratio: 320/480)";
     }
 
-    @include mq($aspect-ratio) {
+    @include breakpoint.mq(variables.$aspect-ratio) {
         content: "$aspect-ratio";
         content: "@media (min-aspect-ratio: 300/250)";
     }
-    @include mq($device-aspect-ratio) {
+    @include breakpoint.mq(variables.$device-aspect-ratio) {
         content: "$device-aspect-ratio";
         content: "@media (max-device-pixel-ratio: 320/480)";
     }

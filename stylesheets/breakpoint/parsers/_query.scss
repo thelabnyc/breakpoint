@@ -1,3 +1,5 @@
+@use "../helpers";
+
 @use "sass:list";
 @use "sass:math";
 @use "sass:meta";
@@ -34,7 +36,7 @@
             }
 
             // If the string value can be a single value, check to see if the number passed in is a valid input for said single value. Fortunately, all current single-value options only accept unitless numbers, so this check is easy.
-            @if breakpoint-single-string($value) {
+            @if helpers.breakpoint-single-string($value) {
                 @if math.is-unitless($number) {
                     $feature-holder: list.append($value, $number, space);
                     $query-holder: list.append(
@@ -46,7 +48,7 @@
                 }
             }
             // If the string is a media type, split the query
-            @if breakpoint-is-media($value) {
+            @if helpers.breakpoint-is-media($value) {
                 $query-holder: list.append($query-holder, list.nth($query, 1));
                 $query-holder: list.append($query-holder, list.nth($query, 2));
                 @return $query-holder;
@@ -89,8 +91,8 @@
             )
         {
             @if not
-                breakpoint-single-string(list.nth($query, 1)) and not
-                breakpoint-single-string(list.nth($query, 2))
+                helpers.breakpoint-single-string(list.nth($query, 1)) and not
+                helpers.breakpoint-single-string(list.nth($query, 2))
             {
                 $feature-holder: list.append(
                     list.nth($query, 1),
@@ -117,16 +119,16 @@
             // If none of the items are single string values and none of the values are media values, we're good.
             @if (
                     not
-                        breakpoint-single-string(list.nth($query, 1)) and not
-                        breakpoint-single-string(list.nth($query, 2)) and not
-                        breakpoint-single-string(list.nth($query, 3))
+                        helpers.breakpoint-single-string(list.nth($query, 1)) and not
+                        helpers.breakpoint-single-string(list.nth($query, 2)) and not
+                        helpers.breakpoint-single-string(list.nth($query, 3))
                 ) and
                 (
                     (
                         not
-                            breakpoint-is-media(list.nth($query, 1)) and not
-                            breakpoint-is-media(list.nth($query, 2)) and not
-                            breakpoint-is-media(list.nth($query, 3))
+                            helpers.breakpoint-is-media(list.nth($query, 1)) and not
+                            helpers.breakpoint-is-media(list.nth($query, 2)) and not
+                            helpers.breakpoint-is-media(list.nth($query, 3))
                     )
                 )
             {
@@ -148,7 +150,7 @@
                 @return $query-holder;
             }
             // let's check to see if the first item is a media type
-            @else if breakpoint-is-media(list.nth($query, 1)) {
+            @else if helpers.breakpoint-is-media(list.nth($query, 1)) {
                 $query-holder: list.append($query-holder, list.nth($query, 1));
                 $feature-holder: list.append(
                     list.nth($query, 2),

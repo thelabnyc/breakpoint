@@ -1,72 +1,73 @@
-@import "variables";
+@use "variables";
+@use "../../stylesheets/breakpoint";
 /*
  * Single value with feature
- * $feature-first : #{$feature-first};
- * $value-first : #{$value-first};
- * $arbitrary-feature : #{$arbitrary-feature};
- * $feature-value-both-strings : #{$feature-value-both-strings};
+ * $feature-first : #{variables.$feature-first};
+ * $value-first : #{variables.$value-first};
+ * $arbitrary-feature : #{variables.$arbitrary-feature};
+ * $feature-value-both-strings : #{variables.$feature-value-both-strings};
  */
 
 .foo {
-    @include breakpoint($feature-first) {
+    @include breakpoint.breakpoint(variables.$feature-first) {
         content: "$feature-first";
         content: "@media (height: 500px)";
     }
-    @include breakpoint($value-first) {
+    @include breakpoint.breakpoint(variables.$value-first) {
         content: "$value-first";
         content: "@media (height: 500px)";
     }
-    @include breakpoint($arbitrary-feature) {
+    @include breakpoint.breakpoint(variables.$arbitrary-feature) {
         content: "$arbitrary-feature";
         content: "@media (lion: 500px)";
     }
-    @include breakpoint($feature-value-both-strings) {
+    @include breakpoint.breakpoint(variables.$feature-value-both-strings) {
         content: "$feature-value-both-strings";
         content: "@media (orientation: portrait)";
     }
 
-    @include mq($feature-first) {
+    @include breakpoint.mq(variables.$feature-first) {
         content: "$feature-first";
         content: "@media (height: 500px)";
     }
-    @include mq($value-first) {
+    @include breakpoint.mq(variables.$value-first) {
         content: "$value-first";
         content: "@media (height: 500px)";
     }
-    @include mq($arbitrary-feature) {
+    @include breakpoint.mq(variables.$arbitrary-feature) {
         content: "$arbitrary-feature";
         content: "@media (lion: 500px)";
     }
-    @include mq($feature-value-both-strings) {
+    @include breakpoint.mq(variables.$feature-value-both-strings) {
         content: "$feature-value-both-strings";
         content: "@media (orientation: portrait)";
     }
 }
 
-@include breakpoint-set("to ems", true);
+@include breakpoint.breakpoint-set("to ems", true);
 .bar {
-    @include breakpoint($feature-first) {
+    @include breakpoint.breakpoint(variables.$feature-first) {
         content: "$feature-first";
         content: "@media (height: 31.25em)";
     }
-    @include breakpoint($value-first) {
+    @include breakpoint.breakpoint(variables.$value-first) {
         content: "$value-first";
         content: "@media (height: 31.25em)";
     }
-    @include breakpoint($arbitrary-feature) {
+    @include breakpoint.breakpoint(variables.$arbitrary-feature) {
         content: "$arbitrary-feature";
         content: "@media (lion: 31.25em)";
     }
 
-    @include mq($feature-first) {
+    @include breakpoint.mq(variables.$feature-first) {
         content: "$feature-first";
         content: "@media (height: 31.25em)";
     }
-    @include mq($value-first) {
+    @include breakpoint.mq(variables.$value-first) {
         content: "$value-first";
         content: "@media (height: 31.25em)";
     }
-    @include mq($arbitrary-feature) {
+    @include breakpoint.mq(variables.$arbitrary-feature) {
         content: "$arbitrary-feature";
         content: "@media (lion: 31.25em)";
     }

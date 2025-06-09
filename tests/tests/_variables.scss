@@ -1,11 +1,11 @@
-@import "breakpoint";
+@use "../../stylesheets/breakpoint";
 
 $single-pixel-value: 500px;
 $single-em-value: 30em;
-@include breakpoint-set("to ems", false);
+@include breakpoint.breakpoint-set("to ems", false);
 
-@include add-breakpoint("single pixel value", $single-pixel-value);
-@include add-breakpoint("single pixel value, em", $single-em-value);
+@include breakpoint.add-breakpoint("single pixel value", $single-pixel-value);
+@include breakpoint.add-breakpoint("single pixel value, em", $single-em-value);
 
 $feature-first: height 500px;
 $value-first: 500px height;
@@ -26,7 +26,7 @@ $basic-or:
 $basic-or-media:
     500px,
     tv 700px color;
-@include add-breakpoint("basic or", $basic-or);
+@include breakpoint.add-breakpoint("basic or", $basic-or);
 
 $monochrome: monochrome;
 $monochrome-double: 300px monochrome;
@@ -49,7 +49,7 @@ $legacy:
 
 $device-pixel-ratio: "resolution" 2dppx;
 $resolution: "min-resolution" 192dpi;
-@include add-breakpoint("device pixel ratio", $device-pixel-ratio);
+@include breakpoint.add-breakpoint("device pixel ratio", $device-pixel-ratio);
 
 $dynamic-context:
     400px ("min-height" 200px),

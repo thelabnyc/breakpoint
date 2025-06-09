@@ -1,3 +1,5 @@
+@use "./settings";
+
 @use "sass:list";
 @use "sass:map";
 @use "sass:meta";
@@ -41,7 +43,7 @@ $private-breakpoint-query-count: 0 !default;
         @return $get;
     } @else {
         @if breakpoint-has-context() and $feature == "media" {
-            @return breakpoint-get("default media");
+            @return settings.breakpoint-get("default media");
         } @else {
             @return false;
         }
@@ -67,7 +69,7 @@ $private-breakpoint-query-count: 0 !default;
             @if $feature == "media" {
                 $v-holder: list.append(
                     $v-holder,
-                    breakpoint-get("default media")
+                    settings.breakpoint-get("default media")
                 );
             } @else {
                 $v-holder: list.append($v-holder, false);
@@ -87,7 +89,7 @@ $private-breakpoint-query-count: 0 !default;
             @if $feature == "media" {
                 $v-holder: list.append(
                     $v-holder,
-                    breakpoint-get("default media")
+                    settings.breakpoint-get("default media")
                 );
             } @else {
                 $v-holder: list.append($v-holder, false);
