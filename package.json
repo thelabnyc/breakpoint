@@ -1,5 +1,5 @@
 {
-  "name": "breakpoint-sass",
+  "name": "@thelabnyc/breakpoint-sass",
   "version": "3.0.0",
   "description": "Really Simple Media Queries with Sass",
   "main": "stylesheets/_breakpoint.scss",
@@ -17,15 +17,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/at-import/breakpoint.git"
+    "url": "https://gitlab.com/thelabnyc/breakpoint.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/at-import/breakpoint/issues"
+    "url": "https://gitlab.com/thelabnyc/breakpoint/-/issues"
   },
-  "homepage": "https://github.com/at-import/breakpoint",
+  "homepage": "https://gitlab.com/thelabnyc/breakpoint",
   "devDependencies": {
+    "@thelabnyc/standards": "^0.4.6",
     "ava": "^4.3.1",
     "diff": "^5.1",
     "fs-extra": "^10.1",
