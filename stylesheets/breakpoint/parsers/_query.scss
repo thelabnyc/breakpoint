@@ -119,15 +119,23 @@
             // If none of the items are single string values and none of the values are media values, we're good.
             @if (
                     not
-                        helpers.breakpoint-single-string(list.nth($query, 1)) and not
-                        helpers.breakpoint-single-string(list.nth($query, 2)) and not
+                        helpers.breakpoint-single-string(
+                            list.nth($query, 1)
+                        ) and not
+                        helpers.breakpoint-single-string(
+                            list.nth($query, 2)
+                        ) and not
                         helpers.breakpoint-single-string(list.nth($query, 3))
                 ) and
                 (
                     (
                         not
-                            helpers.breakpoint-is-media(list.nth($query, 1)) and not
-                            helpers.breakpoint-is-media(list.nth($query, 2)) and not
+                            helpers.breakpoint-is-media(
+                                list.nth($query, 1)
+                            ) and not
+                            helpers.breakpoint-is-media(
+                                list.nth($query, 2)
+                            ) and not
                             helpers.breakpoint-is-media(list.nth($query, 3))
                     )
                 )

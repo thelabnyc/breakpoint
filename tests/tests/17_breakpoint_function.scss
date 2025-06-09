@@ -3,7 +3,6 @@
 @use "variables";
 @use "../../stylesheets/breakpoint";
 
-
 @mixin breakpoint-test-query($mq) {
     $bkpt: breakpoint.breakpoint($mq);
     _query: meta.inspect(map.get($bkpt, "query"));
@@ -44,7 +43,12 @@
 .context {
     /* Single Pixel Value */
     _test: "breakpoint(#{variables.$single-pixel-value}, 'min-width')";
-    $bkpt: breakpoint.breakpoint(variables.$single-pixel-value, "min-width", "height", "no-query");
+    $bkpt: breakpoint.breakpoint(
+        variables.$single-pixel-value,
+        "min-width",
+        "height",
+        "no-query"
+    );
     $contexts: map.get($bkpt, "context");
     @each $k, $v in $contexts {
         _#{$k}: meta.inspect($v);
@@ -76,14 +80,24 @@
     }
     /* No Query */
     _test: "breakpoint(#{variables.$no-query})";
-    $bkpt: breakpoint.breakpoint(variables.$no-query, "min-width", "media", "no-query");
+    $bkpt: breakpoint.breakpoint(
+        variables.$no-query,
+        "min-width",
+        "media",
+        "no-query"
+    );
     $contexts: map.get($bkpt, "context");
     @each $k, $v in $contexts {
         _#{$k}: meta.inspect($v);
     }
     /* No Query, Or */
     _test: "breakpoint(#{variables.$legacy})";
-    $bkpt: breakpoint.breakpoint(variables.$legacy, "min-width", "media", "no-query");
+    $bkpt: breakpoint.breakpoint(
+        variables.$legacy,
+        "min-width",
+        "media",
+        "no-query"
+    );
     $contexts: map.get($bkpt, "context");
     @each $k, $v in $contexts {
         _#{$k}: meta.inspect($v);

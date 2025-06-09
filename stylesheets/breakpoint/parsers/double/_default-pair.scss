@@ -12,8 +12,14 @@
     $max: max($first, $second);
 
     // Set Context
-    $context-setter: context.private-breakpoint-set-context(min-#{$default}, $min);
-    $context-setter: context.private-breakpoint-set-context(max-#{$default}, $max);
+    $context-setter: context.private-breakpoint-set-context(
+        min-#{$default},
+        $min
+    );
+    $context-setter: context.private-breakpoint-set-context(
+        max-#{$default},
+        $max
+    );
 
     // Make them EMs if need be
     @if (settings.breakpoint-get("to ems") == true) {
