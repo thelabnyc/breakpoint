@@ -33,5 +33,9 @@
   },
   "peerDependencies": {
     "sass": "^1.89.1"
+  },
+  "engines": {
+    "npm": "^11.6.0",
+    "node": "^24.14.0"
   }
 }
